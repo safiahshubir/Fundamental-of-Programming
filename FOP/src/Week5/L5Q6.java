@@ -1,0 +1,56 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Week5;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author user
+ */
+public class L5Q6 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.print("Enter the number of row of Pascal Triangle to generate: ");
+        int row = in.nextInt();        
+        System.out.println("The Pascal Triangle with " + row + " row(s)");
+        System.out.println("");
+        
+        int pasc[][] = new int[row][row];
+        int hold[] = new int[row];
+        
+        for(int i = 0; i < row; i++){
+            for(int j = 0; j < row; j++){                
+                if(j == 0){
+                    pasc[i][j] = 1;
+                    System.out.printf("%-5d",pasc[i][j]);
+                }
+                else if(j >= 1 && j < row-1 && j < i){
+                    pasc[i][j] = hold[j]+hold[j-1];
+                    System.out.printf("%-5d",pasc[i][j]);
+                }
+                else if(j == i){
+                    pasc[i][j] = 1;
+                    System.out.printf("%-5d",pasc[i][j]);
+                }
+                else{
+                    int end = 0;
+                    System.out.printf("%-5d",end);
+                }    
+            }
+            System.out.println("");
+            for(int x = 0; x < row; x++){
+                hold[x] = pasc[i][x]; 
+            }
+        }
+    }
+    
+}
